@@ -4,9 +4,11 @@
     box-sizing: border-box;
   }
   
+  
   body {
     font-family: 'Nunito', sans-serif;
     color: #384047;
+    background-color: #e7eeef;
   }
   
   form {
