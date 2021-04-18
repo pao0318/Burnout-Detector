@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,19 +5,19 @@
         <title>SAPlabs</title>
         <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
         <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="static/main.css">
     </head>
     <body>
       <div class="row">
     <div class="col-md-12">
-      <form action="index.html" method="post">
+      <form action="{{ url_for("cfd")}}" method="post">
         <h1> Employee Details </h1>
-        
+
         <fieldset>
-        
+
           <label for="name">Employee ID :</label>
           <input type="text" id="name" name="user_name">
-          
+
                   <br>
         <div>
             <label>Date of Joining : </label>
@@ -33,38 +32,38 @@
         </div>
         <div>
             <label>Company</label>
-            <select name="gender">
+            <select name="company">
                 <option value="0">Service</option>
                 <option value="1">Product</option>
             </select>
         </div>
         <div>
             <label>Is Work from Home setup available to you?</label>
-            <select name="gender">
+            <select name="wfh">
                 <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>
         </div>
         <div>
             <label>Designation : </label>
-            <select name="gender">
+            <select name="des">
                 <option value="0">0(Lowest)</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
-                <option value="3">3(Highest)</option>                
+                <option value="3">3(Highest)</option>
             </select>
-        </div> 
+        </div>
         <label for="name">Work URL</label>
-        <input type="text" id="name" name="work_url">
+        <input type="text" id="URL" name="work_url">
         <div>
 
         </div>
          </fieldset>
         <button type="submit">Submit</button>
-        
+
        </form>
         </div>
       </div>
-      
+<a href="{{ url_for("predict")}}">Refer to this pagfe for ur burnout score</a>
     </body>
 </html>
