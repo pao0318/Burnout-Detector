@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request,render_template
 import time
 import  numpy as np
 import pickle as pkl
+import os
 
 app = Flask(__name__)
 
@@ -48,7 +49,7 @@ def cfd():
 
        print(eid,doj,gender,company,wfh,des,URL)
 
-    return render_template("form.html")
+    return render_template('form.html')
 
 Url = url_strip(URL)
 resource_time=0
@@ -102,7 +103,7 @@ def predict():
     print(prediction)
 
 
-    return render_template('predict5.html',  prediction_chances=prediction)
+    return render_template('predict5.html',  prediction_chances=round(prediction[0], 2))
 
 @app.route('/quit_url', methods=['POST'])
 def quit_url():
