@@ -1,12 +1,9 @@
-from flask import Flask, jsonify, request,render_template
+from flask import Flask, jsonify, request,render_template, redirect
+from script import Predictor
 import time
-import  numpy as np
-import pickle as pkl
-import os
 
 app = Flask(__name__)
 
-model = pkl.load(open('model_file.pkl', 'rb'))
 url_timestamp = {}
 url_viewtime = {}
 prev_url = ""
@@ -34,20 +31,15 @@ def cfd():
     if request.method == "POST":
 
        eid = request.form.get("user_name")
-
        doj = request.form.get("doj")
-
        gender = int(request.form.get("gender"))
-
        company= int(request.form.get("company"))
-
        wfh = int(request.form.get("wfh"))
-
        des= int(request.form.get("des"))
-
        URL= request.form.get("work_url")
 
        print(eid,doj,gender,company,wfh,des,URL)
+       return redirect(request.url)
 
     return render_template('form.html')
 
@@ -95,8 +87,8 @@ def predict():
 
     int_features = [int(gender),int(company),int(wfh),int(des),int(resource_time),0.5]
     print(int_features)
-    final_features = np.array(int_features)
-    prediction = model.predict(final_features.reshape(1, -1))
+    predictor = Predictor()
+    prediction = predictor.predict(int_features)
     #p = model.predict_proba(final_features)
     #prediction_chances=p[0][1]
 
