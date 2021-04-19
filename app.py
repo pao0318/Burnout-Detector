@@ -9,13 +9,13 @@ url_viewtime = {}
 prev_url = ""
 working_url=""
 
-eid=""
-doj=""
-gender=0
-company=0
-wfh=1
-des=3
-URL=""
+eid = ''
+doj = ''
+gender = 0
+company = 0
+wfh = 0
+des = 0
+URL = ''
 
 
 def url_strip(url):
@@ -29,17 +29,23 @@ def url_strip(url):
 @app.route('/', methods =["GET", "POST"])
 def cfd():
     if request.method == "POST":
+        global eid
+        eid = request.form.get("user_name")
+        global doj
+        doj = request.form.get("doj")
+        global gender 
+        gender = int(request.form.get("gender"))
+        global company 
+        company= int(request.form.get("company"))
+        global wfh 
+        wfh = int(request.form.get("wfh"))
+        global des
+        des= int(request.form.get("des"))
+        global URL
+        URL= request.form.get("work_url")
 
-       eid = request.form.get("user_name")
-       doj = request.form.get("doj")
-       gender = int(request.form.get("gender"))
-       company= int(request.form.get("company"))
-       wfh = int(request.form.get("wfh"))
-       des= int(request.form.get("des"))
-       URL= request.form.get("work_url")
-
-       print(eid,doj,gender,company,wfh,des,URL)
-       return redirect(request.url)
+        print(eid,doj,gender,company,wfh,des,URL)
+        return redirect(request.url)
 
     return render_template('form.html')
 
@@ -57,6 +63,7 @@ def send_url():
     global url_timestamp
     global url_viewtime
     global prev_url
+    global resource_time
 
     print("initial db prev tab: ", prev_url)
     print("initial db timestamp: ", url_timestamp)
@@ -81,11 +88,12 @@ def send_url():
 
     return jsonify({'message': 'success!'}), 200
 
-print([int(gender),int(company),int(wfh),int(des),int(resource_time),0.5])
+print([int(gender),int(company),int(wfh),int(des),int(resource_time),4.5])
+
 @app.route('/predict')
 def predict():
 
-    int_features = [int(gender),int(company),int(wfh),int(des),int(resource_time),0.5]
+    int_features = [int(gender),int(company),int(wfh),int(des),int(resource_time),4.5]
     print(int_features)
     predictor = Predictor()
     prediction = predictor.predict(int_features)
