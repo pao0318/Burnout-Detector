@@ -4,7 +4,7 @@
 1. Clone the repository in your local system.
 2. Open Chrome and go to Extension.
 3. Turn on Developer Mode and load the extension from the src folder in the repository.
-4. Run app.py in your teminal.
+4. Run app.py in your terminal.
 5. Enter your details in localhost and after spending time on the work url, click on the burn rate result on the bottom right.
 
 ## How to contribute
