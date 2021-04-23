@@ -21,7 +21,7 @@ Eg. For feature 'foo' make a branch foo and add your changes.
 
 This is a ML based project which helps track the burnout rate of an employee based on the time spent on the web browser working in their job's url. It uses a chrome extension to track the time spent on the work url and uses a simple test and some details to periodically track the burnout rate in an entire work day.
 
-    The objectives of this project:
+The objectives of this project:
   - Alarm the user(employee) about the signs of incoming burnout.
   - Integrating technology to help mental health of employees, and of all kinds of users in future.
 
@@ -35,7 +35,7 @@ This is a ML based project which helps track the burnout rate of an employee bas
 
   - The data is taken from the [Hackerearth competition on kaggle about employee burnout](https://www.hackerearth.com/challenges/competitive/hackerearth-machine-learning-challenge-predict-burnout-rate/), which involved predict the burnout rate of an employee based on details provided by them.
   -  The data involves the following features in it.
-    ![column_desc.png](snippets\column_desc.png)
+![column_desc.png](snippets/column_desc.png)
 
 
 
