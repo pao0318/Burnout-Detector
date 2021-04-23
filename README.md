@@ -1,4 +1,4 @@
-# Employee Burnout Detector
+# Burnout-Detector
 
 ## How to use
 1. Clone the repository in your local system.
